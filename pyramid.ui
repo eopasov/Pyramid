@@ -42,7 +42,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_2"/>
+      <widget class="QComboBox" name="comboBox_layers"/>
      </item>
      <item>
       <widget class="QLabel" name="label_size">
