@@ -53,8 +53,12 @@ void Pyramid::on_actionOpen_triggered()
             //************************************************************************************************
             //Вызываем дополнительное диалоговое окно,для получения количества слоев пирамиды
             bool okno;
-            QString str=QInputDialog::getText(0,"Ввод","Количество слоев",QLineEdit::Normal,"0",&okno);
+            QString str=QInputDialog::getText(0,"Введите","Количество слоев",QLineEdit::Normal,"0",&okno);
             setLayers(str.toInt());  //Получаем численное значение количества слоев
+            //************************************************************************************************
+            bool okno2;
+            QString str2=QInputDialog::getText(0,"Введите","Коэффициент уменьшения слоя",QLineEdit::Normal,"0",&okno2);
+            setCoef(str2.toFloat());
 
             picture=new QPixmap(QPixmap::fromImage(image));
             ui->image_label->resize(picture->width(),picture->height());
@@ -80,7 +84,7 @@ void Pyramid::gener_pics()
     for(int i=0;i<getLayers();i++)
     {
         ui->comboBox_layers->addItem(QString::number(i));
-        pics.insert(i,picture->toImage().scaled(picture->width()/pow(2,i),picture->height()/pow(2,i)));
+        pics.insert(i,picture->toImage().scaled(picture->width()/pow(getCoef(),i),picture->height()/pow(getCoef(),i)));
     }
     hash.insert(getName(),pics);
     changelayers(0);
@@ -122,4 +126,14 @@ void Pyramid::on_comboBox_currentIndexChanged(const QString &arg1)
 {
 
     gener_hash(arg1);
+}
+
+float Pyramid::getCoef() const
+{
+    return coef;
+}
+
+void Pyramid::setCoef(float value)
+{
+    coef = value;
 }

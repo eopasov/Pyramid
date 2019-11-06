@@ -24,6 +24,9 @@ public:
     QString getName() const;
     void setName(const QString &value);
 
+    float getCoef() const;
+    void setCoef(float value);
+
 private slots:
     void on_actionClose_triggered();
     void gener_pics();
@@ -41,6 +44,7 @@ private:
     int layers;
     QHash<QString,QHash<int,QImage>> hash;
     QString name;
+    float coef;
 };
 
 #endif // PYRAMID_H
