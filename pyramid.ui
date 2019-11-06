@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>672</width>
-    <height>574</height>
+    <width>797</width>
+    <height>730</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,18 +60,24 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="image_label">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>80</y>
-      <width>251</width>
-      <height>271</height>
+      <x>70</x>
+      <y>60</y>
+      <width>621</width>
+      <height>591</height>
      </rect>
     </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="image_label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -79,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>672</width>
+     <width>797</width>
      <height>21</height>
     </rect>
    </property>

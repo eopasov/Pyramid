@@ -2,6 +2,8 @@
 #define PYRAMID_H
 #include <QMainWindow>
 #include <QScrollArea>
+#include <QMessageBox>
+#include <QFileDialog>
 
 namespace Ui {
 class Pyramid;
@@ -17,6 +19,8 @@ public:
 
 private slots:
     void on_actionClose_triggered();
+
+    void on_actionOpen_triggered();
 
 private:
     Ui::Pyramid *ui;
