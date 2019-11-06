@@ -46,10 +46,35 @@ void Pyramid::on_actionOpen_triggered()
                                          tr("Cannot load %1.").arg(fileName));
                 return;
             }
+            //************************************************************************************************
+            //Вызываем дополнительное диалоговое окно,для получения количества слоев пирамиды
+            bool okno;
+            QString str=QInputDialog::getText(0,"Ввод","Количество слоев",QLineEdit::Normal,"0",&okno);
+            setLayers(str.toInt());  //Получаем численное значение количества слоев
+
             picture=new QPixmap(QPixmap::fromImage(image));
             ui->image_label->resize(picture->width(),picture->height());
     }
+            gener_pics();
 
+   // ui->image_label->setPixmap(*picture);
+}
 
-    ui->image_label->setPixmap(*picture);
+int Pyramid::getLayers() const
+{
+    return layers;
+}
+
+void Pyramid::setLayers(int value)
+{
+    layers = value;
+}
+void Pyramid::gener_pics()
+{
+    for(int i=0;i<getLayers();i++)
+    {
+        ui->comboBox_layers->addItem(QString::number(i));
+        pics.insert(i,picture->toImage().scaled(picture->width()/pow(2,i),picture->height()/pow(2,i)));
+    }
+    ui->image_label->setPixmap(QPixmap::fromImage(pics[0]));
 }
